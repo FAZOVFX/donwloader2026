@@ -2,3 +2,4 @@ aiogram
 yt-dlp
 Flask
 aiofiles
+python-dotenv
