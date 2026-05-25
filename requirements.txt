@@ -1,8 +1,4 @@
 aiogram
 yt-dlp
-aiofiles
-python-dotenv
-asyncpg
-Pillow
-ffmpeg-python
 Flask
+aiofiles
