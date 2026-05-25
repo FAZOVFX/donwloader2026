@@ -1,1 +1,2 @@
-# donwloader2026
+# Telegram Media Bot
+Professional project structure
