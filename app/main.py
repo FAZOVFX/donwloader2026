@@ -9,26 +9,37 @@ from app.loader import (
     dp
 )
 
+# START
 from app.handlers.start import (
     router as start_router
 )
 
+# INSTAGRAM
+from app.handlers.instagram import (
+    router as insta_router
+)
+
+# SEARCH + YOUTUBE
 from app.handlers.search import (
     router as search_router
 )
 
+# CALLBACKS
 from app.handlers.callback import (
     router as callback_router
 )
 
-# Routers
+# ROUTERS
 dp.include_router(start_router)
+
+dp.include_router(insta_router)
+
 dp.include_router(search_router)
+
 dp.include_router(callback_router)
 
-# Flask app
+# FLASK
 web = Flask(__name__)
-
 
 @web.route("/")
 def home():
@@ -36,7 +47,7 @@ def home():
     return "Bot is running"
 
 
-# Web server
+# WEB SERVER
 def run_web():
 
     port = int(
@@ -52,19 +63,21 @@ def run_web():
     )
 
 
-# Telegram bot
+# TELEGRAM BOT
 async def run_bot():
 
     await dp.start_polling(bot)
 
 
-# Main
+# MAIN
 if __name__ == "__main__":
 
+    # FLASK THREAD
     threading.Thread(
         target=run_web
     ).start()
 
+    # BOT START
     asyncio.run(
         run_bot()
     )
